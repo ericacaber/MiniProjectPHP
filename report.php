@@ -1,5 +1,11 @@
 <?php
 
+session_start();
+
+if($_SESSION['login'] == 'admin'){
+    header('Location: message.php');
+}
+
 $user = "root";
 $password = "password";
 $database = "shop";
@@ -25,21 +31,13 @@ $totalAmount=0;
                 <td>$price</td>
             </tr>";
 
-        $reportQuery= "INSERT INTO report VALUES (NULL ,'$id','$dateToday')";
+        $reportQuery= "INSERT INTO report VALUES (NULL ,'$id','$name','$price','$dateToday')";
         mysql_query($reportQuery);
 
         $totalAmount+=$price;
     }
     echo "<tr><td colspan='3'>Total Amount: P$totalAmount</td></tr>";
     echo "</table>";
-
-    echo "</br></br></br><a href='summaryReport.php'>View Report</a>";
-
-    $viewReportQuery= "SELECT p.id, p.productName , r.datePurchased FROM products as p  INNER JOIN report as r ON p.id = r.product_id";
-    $reportResult = mysql_query($viewReportQuery);
-
-    $summaryQuery = "SELECT product_id, COUNT(product_id) FROM report GROUP BY product_id";
-    $summaryResult = mysql_query($summaryQuery);
 
 mysql_close();
 
