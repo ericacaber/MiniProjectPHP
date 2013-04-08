@@ -45,6 +45,8 @@ session_start();
         <td colspan="3" align="center"> <input type="submit" value="Compute"/></td>
     </tr>
 
+    //shop comment
+
 </table>
 </form>
 </body>
