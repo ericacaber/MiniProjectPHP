@@ -38,6 +38,8 @@ $totalAmount=0;
     }
     echo "<tr><td colspan='3'>Total Amount: P$totalAmount</td></tr>";
     echo "</table>";
+    
+    //comment
 
 mysql_close();
 
