@@ -19,7 +19,7 @@ $deleteQuery= "DELETE FROM products WHERE id='$id'";
 $deleteResults= mysql_query($deleteQuery);
 
 if($deleteResults){
-    echo "</br></br><p align='center'>SUCCESSFULLY DELETED!</br></p>";
+    echo "</br></br><p align='center'>SUCCESSFULLY DELETED!!!</br></p>";
     echo "<p align='center'><a href='view.php'>Back to Main Page</a></p>";
 }else{
     echo "FAILED";
